@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота №1 - Реєстрація</title>
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav>
+                <ul>
+                    <li><a href="../index.html">Повернутися на Головну</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section class="container section">
+            <h2>Форма реєстрації (Лабораторна робота №1)</h2>
+            
+            <form action="https://webhook.site/19de6224-82b8-479b-bde2-bc409cc69a35" method="POST" class="auth-form">
+                
+                <div class="form-group">
+                    <label for="first-name">Ім'я:</label>
+                    <input type="text" id="first-name" name="first_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="last-name">Прізвище:</label>
+                    <input type="text" id="last-name" name="last_name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Електронна пошта:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="password">Пароль:</label>
+                    <input type="password" id="password" name="password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm-password">Підтвердження паролю:</label>
+                    <input type="password" id="confirm-password" name="confirm_password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="birthdate">Дата народження:</label>
+                    <input type="date" id="birthdate" name="birth_date">
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">Стать:</label>
+                    <select id="gender" name="gender">
+                        <option value="not_specified">Не вказано</option>
+                        <option value="male">Чоловіча</option>
+                        <option value="female">Жіноча</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" value="Зареєструватися" class="submit-btn">
+                </div>
+
+            </form>
+        </section>
+    </main>
+
+    <footer>
+        <p>2026 Ілля Ларін | Роки навчання: 2026-2029</p>
+        <p>
+            <a href="https://github.com/Sigma777-design/WEB_Practice" target="_blank">Мій GitHub репозиторій</a>
+        </p>
+    </footer>
+
+</body>
+</html>
