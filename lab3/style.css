@@ -1,0 +1,72 @@
+/* Лабораторна №3 — копія структури головної сторінки YouTube на FlexBox */
+* { box-sizing: border-box; }
+html, body { margin: 0; height: 100%; }
+body { font-family: Roboto, Arial, sans-serif; font-size: 14px; color: #0f0f0f; background: #fff; }
+a { color: inherit; text-decoration: none; }
+ul { list-style: none; margin: 0; padding: 0; }
+button { font: inherit; cursor: pointer; }
+
+/* ---------- Каркас: сайдбар + контент ---------- */
+.page    { display: flex; height: 100vh; }
+.sidebar { flex: 0 0 240px; display: flex; flex-direction: column; gap: 12px; padding: 8px 12px; overflow-y: auto; }
+.content { flex: 1; display: flex; flex-direction: column; min-width: 0; }
+
+/* ---------- Сайдбар ---------- */
+.logo { display: flex; align-items: center; gap: 8px; height: 48px; }
+.logo__link { display: flex; align-items: center; gap: 4px; font-size: 18px; letter-spacing: -.5px; }
+.logo__mark { display: flex; justify-content: center; align-items: center; width: 28px; height: 20px; font-size: 11px; color: #fff; background: #f00; border-radius: 6px; }
+.logo small { align-self: flex-start; font-size: 10px; color: #606060; }
+
+.menu--box { display: flex; flex-direction: column; gap: 2px; padding-bottom: 12px; border-bottom: 1px solid #e5e5e5; }
+.menu__title { padding: 8px 12px; font-weight: 500; font-size: 16px; }
+.menu__item { display: flex; align-items: center; gap: 20px; height: 40px; padding: 0 12px; border-radius: 10px; }
+.menu__item:hover { background: #f2f2f2; }
+.menu__item--active { background: #f2f2f2; font-weight: 500; }
+.menu__icon { flex: 0 0 24px; text-align: center; }
+.dot { width: 4px; height: 4px; margin-left: auto; background: #065fd4; border-radius: 50%; }
+
+/* ---------- Верхня панель ---------- */
+.topbar { flex: 0 0 56px; display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 0 24px; }
+.search { flex: 0 1 640px; display: flex; align-items: center; gap: 12px; margin-left: 40px; }
+.search__input { flex: 1; height: 40px; padding: 0 16px; font-size: 16px; border: 1px solid #ccc; border-right: 0; border-radius: 40px 0 0 40px; outline: none; }
+.search__input:focus { border-color: #1c62b9; }
+.search__btn { flex: 0 0 64px; height: 40px; margin-left: -12px; background: #f8f8f8; border: 1px solid #ccc; border-radius: 0 40px 40px 0; }
+.topbar__actions { display: flex; align-items: center; gap: 8px; }
+
+.icon-btn { display: flex; justify-content: center; align-items: center; width: 40px; height: 40px; background: none; border: 0; border-radius: 50%; font-size: 18px; }
+.icon-btn:hover { background: #f2f2f2; }
+.icon-btn--round { background: #f2f2f2; }
+
+.avatar { flex: 0 0 36px; display: flex; justify-content: center; align-items: center; width: 36px; height: 36px; font-size: 12px; font-weight: 500; color: #fff; border-radius: 50%; }
+.avatar--sm { flex-basis: 24px; width: 24px; height: 24px; }
+.avatar--user { background: #0b8a6b; }
+
+/* ---------- Чіпси ---------- */
+.chips { flex: 0 0 56px; display: flex; align-items: center; gap: 12px; padding: 0 24px; overflow: hidden; }
+.chip { flex: 0 0 auto; height: 32px; padding: 0 12px; font-weight: 500; background: #f2f2f2; border: 0; border-radius: 8px; white-space: nowrap; }
+.chip:hover { background: #e5e5e5; }
+.chip--active { color: #fff; background: #0f0f0f; }
+.chips__next { margin-left: auto; flex: 0 0 40px; }
+
+/* ---------- Стрічка ---------- */
+.feed { flex: 1; overflow-y: auto; padding: 8px 24px 24px; }
+.videos { display: flex; flex-wrap: wrap; gap: 24px 16px; }
+.video { flex: 1 1 240px; max-width: calc(25% - 12px); min-width: 200px; }
+
+.video__thumb { position: relative; display: block; aspect-ratio: 16 / 9; border-radius: 12px; }
+.video__time { position: absolute; right: 8px; bottom: 8px; padding: 1px 4px; font-size: 12px; font-weight: 500; color: #fff; background: rgba(0,0,0,.8); border-radius: 4px; }
+.video__info { display: flex; gap: 12px; margin-top: 12px; }
+.video__title { margin: 0 0 4px; font-size: 14px; font-weight: 500; line-height: 20px; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; overflow: hidden; }
+.video__channel, .video__meta { margin: 0; font-size: 12px; line-height: 18px; color: #606060; }
+
+/* ---------- Shorts ---------- */
+.shorts { margin-top: 32px; padding-top: 24px; border-top: 1px solid #e5e5e5; }
+.shorts__title { display: flex; align-items: center; gap: 8px; margin: 0 0 16px; font-size: 20px; }
+.shorts__title .icon-btn { margin-left: auto; }
+.shorts__icon { display: flex; justify-content: center; align-items: center; width: 24px; height: 24px; font-size: 11px; color: #fff; background: #f00; border-radius: 6px; }
+.shorts__row { display: flex; gap: 12px; overflow-x: auto; }
+.short { flex: 1 0 190px; display: flex; align-items: flex-end; aspect-ratio: 9 / 14; padding: 12px; color: #fff; font-weight: 500; border-radius: 12px; }
+
+/* ---------- Трохи гнучкості без повної адаптивності ---------- */
+@media (max-width: 1050px) { .video { max-width: calc(33.333% - 11px); } }
+@media (max-width: 800px)  { .video { max-width: calc(50% - 8px); } .sidebar { flex-basis: 72px; } .menu__item { font-size: 0; } .menu__icon { font-size: 16px; } }

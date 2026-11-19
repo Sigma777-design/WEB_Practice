@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна №6 — CSS-анімація та спрайти Pokémon</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Спрайти — анімовані GIF з pokemondb.net/sprites (чорно-білі, «anim»), підключені прямими посиланнями.
+       Це звичайні <img>, тому власна покадрова анімація GIF зберігається; CSS додає рух, паралакс і ефекти. -->
+  <main class="scene" id="scene" aria-label="Анімована сцена з покемонами">
+
+    <!-- Небо: зміна кольору, сонце → місяць, зорі -->
+    <div class="stars"></div>
+    <div class="orb"></div>
+
+    <!-- Паралакс-фон -->
+    <div class="layer clouds-far"></div>
+    <div class="layer clouds-near"></div>
+    <div class="layer hills"></div>
+    <div class="layer trees"></div>
+    <div class="ground"></div>
+
+    <!-- Shiny Slowpoke — дуже повільно іде крізь сцену -->
+    <div class="actor slowpoke">
+      <div class="bob">
+        <img class="spr" src="https://img.pokemondb.net/sprites/black-white/anim/shiny/slowpoke.gif" alt="Shiny Slowpoke" referrerpolicy="no-referrer">
+      </div>
+      <span class="bubble" aria-hidden="true">…</span>
+      <span class="shadow"></span>
+    </div>
+
+    <!-- Bulbasaur — патрулює галявину, розвертається й підстрибує -->
+    <div class="actor bulbasaur">
+      <div class="flip">
+        <div class="hop">
+          <img class="spr" src="https://img.pokemondb.net/sprites/black-white/anim/normal/bulbasaur.gif" alt="Bulbasaur" referrerpolicy="no-referrer">
+        </div>
+      </div>
+      <span class="shadow"></span>
+    </div>
+
+    <!-- Gardevoir (спереду) — левітує всередині психічної аури -->
+    <div class="actor gardevoir">
+      <div class="aura"></div>
+      <div class="float">
+        <img class="spr" src="https://img.pokemondb.net/sprites/black-white/anim/normal/gardevoir.gif" alt="Gardevoir" referrerpolicy="no-referrer">
+      </div>
+      <span class="shadow"></span>
+    </div>
+
+    <!-- Іскри магії -->
+    <div class="sparkles" aria-hidden="true">
+      <i style="--x:6cqw;  --s:1.0; --d:0s"></i>
+      <i style="--x:12cqw; --s:.7;  --d:1.1s"></i>
+      <i style="--x:3cqw;  --s:1.2; --d:2.2s"></i>
+      <i style="--x:16cqw; --s:.8;  --d:3.1s"></i>
+      <i style="--x:9cqw;  --s:.6;  --d:4.0s"></i>
+      <i style="--x:14cqw; --s:1.0; --d:5.0s"></i>
+    </div>
+
+    <!-- Gardevoir (ззаду) — на передньому плані, дивиться на сцену -->
+    <div class="actor gardevoir-back">
+      <div class="breathe">
+        <img class="spr" src="https://img.pokemondb.net/sprites/black-white/anim/back-normal/gardevoir.gif" alt="Gardevoir, вид ззаду" referrerpolicy="no-referrer">
+      </div>
+    </div>
+
+    <div class="layer fore"></div>
+    <div class="shade"></div>
+
+    <div class="hud">
+      <button id="toggle" type="button">⏸ Пауза</button>
+      <button id="speed" type="button">⏩ ×1</button>
+    </div>
+  </main>
+
+  <script>
+    // JS лише для керування (UX): уся анімація — у CSS
+    const scene = document.getElementById('scene');
+    const toggle = document.getElementById('toggle');
+    const speed = document.getElementById('speed');
+    toggle.addEventListener('click', () => {
+      const paused = scene.classList.toggle('paused');
+      toggle.textContent = paused ? '▶ Старт' : '⏸ Пауза';
+    });
+    speed.addEventListener('click', () => {
+      const fast = speed.dataset.fast !== '1';
+      speed.dataset.fast = fast ? '1' : '';
+      speed.textContent = fast ? '⏩ ×2' : '⏩ ×1';
+      // змінюємо лише швидкість програвання, тож анімації продовжуються з поточного місця
+      scene.getAnimations({ subtree: true }).forEach(a => a.updatePlaybackRate(fast ? 2 : 1));
+    });
+  </script>
+</body>
+</html>

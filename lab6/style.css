@@ -1,0 +1,150 @@
+/* Лабораторна №6 — CSS-анімація: спрайти Pokémon (GIF) + паралакс-фон. Чистий CSS, JS лише для кнопок. */
+
+/* Кольори неба — реєструємо як <color>, щоб градієнт плавно змінювався */
+@property --sky-top    { syntax: '<color>'; inherits: false; initial-value: #4aa0ff; }
+@property --sky-bottom { syntax: '<color>'; inherits: false; initial-value: #c6ecff; }
+
+:root {
+  --bulba-face: 1;     /* якщо Bulbasaur дивиться «задом наперед» — поставте -1 */
+  --ground: 22%;       /* висота землі */
+}
+* { box-sizing: border-box; }
+body { margin: 0; min-height: 100vh; display: grid; place-items: center; background: #111; font-family: Arial, sans-serif; }
+
+/* ---------- Сцена ---------- */
+.scene {
+  --sky-top: #4aa0ff; --sky-bottom: #c6ecff;
+  position: relative; overflow: hidden; container-type: inline-size;
+  width: min(100vw, 1100px); aspect-ratio: 16 / 9;
+  background: linear-gradient(var(--sky-top), var(--sky-bottom) 70%);
+  animation: sky 30s ease-in-out infinite alternate;     /* день → захід → ніч */
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .6);
+}
+@keyframes sky {
+  0%   { --sky-top: #4aa0ff; --sky-bottom: #c6ecff; }
+  45%  { --sky-top: #ff8a5b; --sky-bottom: #ffd9a0; }
+  100% { --sky-top: #14224f; --sky-bottom: #6d5d9c; }
+}
+
+/* Сонце, що перетворюється на місяць */
+.orb {
+  position: absolute; left: 14%; top: 34%; width: 9%; aspect-ratio: 1; border-radius: 50%;
+  animation: orb-x 30s linear infinite alternate,
+             orb-y 30s ease-in-out infinite alternate,
+             orb-look 30s linear infinite alternate;
+}
+@keyframes orb-x { to { translate: 520% 0; } }
+@keyframes orb-y { 0%, 100% { top: 34%; } 50% { top: 8%; } }
+@keyframes orb-look {
+  0%   { background: #fff3a0; box-shadow: 0 0 40px 18px rgba(255, 240, 150, .7); }
+  50%  { background: #ffb36b; box-shadow: 0 0 40px 18px rgba(255, 170, 100, .7); }
+  100% { background: #e6ecff; box-shadow: 0 0 30px 10px rgba(210, 225, 255, .6); }
+}
+
+/* Зорі з'являються вночі та мерехтять */
+.stars {
+  position: absolute; inset: 0 0 40% 0; opacity: 0;
+  background:
+    radial-gradient(2px 2px at 10% 20%, #fff, transparent), radial-gradient(2px 2px at 26% 60%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 38% 15%, #fff, transparent), radial-gradient(2px 2px at 52% 45%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 64% 22%, #fff, transparent), radial-gradient(2px 2px at 77% 58%, #fff, transparent),
+    radial-gradient(1.5px 1.5px at 88% 18%, #fff, transparent), radial-gradient(2px 2px at 95% 48%, #fff, transparent);
+  animation: stars-fade 30s linear infinite alternate,
+             twinkle 2.4s ease-in-out infinite alternate;
+}
+@keyframes stars-fade { 0%, 55% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes twinkle { to { filter: brightness(.5); } }
+
+/* ---------- Паралакс: background-position рухається з різною швидкістю ---------- */
+.layer { position: absolute; left: 0; right: 0; background-repeat: repeat-x; animation: scroll linear infinite; animation-duration: var(--d); }
+@keyframes scroll { from { background-position-x: 0; } to { background-position-x: calc(var(--w) * -1); } }
+
+.clouds-far  { --d: 90s; --w: 600px; top: 6%;  height: 22%; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='600' height='120'><g fill='white' opacity='.55'><ellipse cx='90' cy='70' rx='60' ry='20'/><ellipse cx='125' cy='55' rx='38' ry='20'/><ellipse cx='400' cy='50' rx='70' ry='22'/><ellipse cx='440' cy='36' rx='40' ry='20'/></g></svg>"); background-size: 600px 100%; }
+.clouds-near { --d: 45s; --w: 800px; top: 22%; height: 26%; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='800' height='140'><g fill='white' opacity='.85'><ellipse cx='150' cy='90' rx='90' ry='28'/><ellipse cx='200' cy='68' rx='55' ry='28'/><ellipse cx='560' cy='70' rx='100' ry='30'/><ellipse cx='610' cy='46' rx='55' ry='28'/></g></svg>"); background-size: 800px 100%; }
+.hills { --d: 34s; --w: 900px; bottom: var(--ground); height: 34%; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='900' height='200' preserveAspectRatio='none'><path d='M0 200V120Q150 20 300 120T600 110T900 120V200Z' fill='%234c8f6a'/></svg>"); background-size: 900px 100%; }
+.trees { --d: 18s; --w: 480px; bottom: calc(var(--ground) - 2%); height: 22%; background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='480' height='120'><g fill='%231f5d3a'><polygon points='60,120 90,30 120,120'/><polygon points='300,120 335,20 370,120'/></g><g fill='%235a3a22'><rect x='86' y='110' width='8' height='10'/><rect x='331' y='110' width='8' height='10'/></g></svg>"); background-size: 480px 100%; }
+
+.ground { --w: 80px; position: absolute; left: 0; right: 0; bottom: 0; height: var(--ground); border-top: 10px solid #58b34d;
+  background: repeating-linear-gradient(90deg, #7a5a34 0 40px, #6c4f2d 40px 80px);
+  animation: scroll 5s linear infinite; }
+
+/* Передній план: трава, що пролітає найшвидше */
+.fore { --d: 3s; --w: 120px; bottom: 0; height: 7%;
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='120' height='40'><g fill='%232f7a3c'><polygon points='6,40 12,8 18,40'/><polygon points='20,40 28,16 34,40'/><polygon points='64,40 70,4 78,40'/><polygon points='84,40 92,18 98,40'/></g></svg>"); background-size: 120px 100%; background-position-y: bottom; }
+
+/* Нічне затемнення поверх усього (узгоджене з небом) */
+.shade { position: absolute; inset: 0; pointer-events: none; background: #0b1440; mix-blend-mode: multiply; opacity: 0;
+  animation: shade 30s linear infinite alternate; }
+@keyframes shade { 0%, 40% { opacity: 0; } 70% { opacity: .18; } 100% { opacity: .5; } }
+
+/* ---------- Персонажі ---------- */
+.actor { position: absolute; isolation: isolate; }
+.spr { display: block; width: auto; image-rendering: pixelated; }   /* GIF лишається анімованим — це звичайний <img> */
+.shadow { position: absolute; left: 50%; bottom: -6%; width: 80%; height: 12%; translate: -50% 0; background: rgba(0, 0, 0, .3); border-radius: 50%; filter: blur(2px); z-index: -1; }
+
+/* Shiny Slowpoke: повільно пливе справа наліво, мрійливо погойдується, час від часу «думає» */
+.slowpoke { bottom: calc(var(--ground) - 2%); left: 0; animation: cross 60s linear infinite; }
+.slowpoke .spr { height: 14cqw; }
+@keyframes cross { from { translate: 105cqw 0; } to { translate: -25cqw 0; } }
+.slowpoke .bob { animation: sway 3.5s ease-in-out infinite alternate; transform-origin: 50% 100%; }
+@keyframes sway { from { rotate: -1deg; } to { rotate: 1deg; } }
+.bubble { position: absolute; left: 70%; top: -26%; padding: 1px 12px 5px; font: bold 4cqw/1 Arial, sans-serif; color: #333; background: #fff; border-radius: 999px; opacity: 0;
+  animation: think 12s ease-in-out infinite; }
+.bubble::after { content: ""; position: absolute; left: 8px; bottom: -7px; width: 9px; height: 9px; background: #fff; border-radius: 50%; box-shadow: -5px 7px 0 -2px #fff; }
+@keyframes think { 0%, 55% { opacity: 0; scale: .5; } 65%, 85% { opacity: 1; scale: 1; } 95%, 100% { opacity: 0; scale: .8; } }
+
+/* Bulbasaur: патрулює галявину; розворот у крайніх точках; підстрибування */
+.bulbasaur { bottom: calc(var(--ground) - 3%); left: 0; animation: patrol 9s ease-in-out infinite alternate; }
+.bulbasaur .spr { height: 10cqw; }
+@keyframes patrol { from { left: 48%; } to { left: 28%; } }
+.bulbasaur .flip { animation: turn 18s steps(1) infinite; }
+@keyframes turn {
+  0%, 49.99%  { scale: var(--bulba-face) 1; }
+  50%, 100%   { scale: calc(var(--bulba-face) * -1) 1; }
+}
+.bulbasaur .hop { animation: hop 1.4s ease-out infinite; transform-origin: 50% 100%; }
+@keyframes hop {
+  0%, 55%, 100% { translate: 0 0; scale: 1 1; }
+  62%           { translate: 0 0; scale: 1.08 .9; }       /* присідає */
+  78%           { translate: 0 -38%; scale: .96 1.05; }   /* стрибок */
+  92%           { translate: 0 0; scale: 1.06 .94; }      /* приземлення */
+}
+
+/* Gardevoir: левітація, тінь і психічна аура */
+.gardevoir { bottom: calc(var(--ground) - 1%); left: 62%; }
+.gardevoir .spr { height: 22cqw; }
+.gardevoir .float { position: relative; animation: levitate 3.2s ease-in-out infinite alternate; }
+@keyframes levitate { from { translate: 0 0; } to { translate: 0 -5%; } }
+.gardevoir .shadow { animation: shadow-pulse 3.2s ease-in-out infinite alternate; }
+@keyframes shadow-pulse { from { scale: 1; opacity: 1; } to { scale: .85; opacity: .75; } }
+.aura { position: absolute; left: 50%; top: 52%; width: 130%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%; z-index: -1;
+  background: radial-gradient(circle, rgba(255, 140, 220, .55) 0%, rgba(150, 120, 255, .28) 45%, transparent 70%);
+  animation: aura 3.2s ease-in-out infinite alternate, aura-hue 8s linear infinite; }
+@keyframes aura { from { scale: .85; opacity: .6; } to { scale: 1.15; opacity: 1; } }
+@keyframes aura-hue { to { filter: hue-rotate(360deg); } }
+
+/* Gardevoir (ззаду): дихає на передньому плані */
+.gardevoir-back { bottom: 3%; left: 2%; }
+.gardevoir-back .spr { height: 28cqw; }
+.gardevoir-back .breathe { transform-origin: 50% 100%; animation: breathe 3s ease-in-out infinite alternate; }
+@keyframes breathe { from { scale: 1 1; } to { scale: 1.015 1.035; } }
+
+/* Іскри: піднімаються від Gardevoir-ззаду вгору й убік, до Gardevoir спереду */
+.sparkles { position: absolute; left: 22%; bottom: 28%; width: 0; height: 0; }
+.sparkles i { position: absolute; left: var(--x); bottom: 0; width: 1.6cqw; height: 1.6cqw; background: #ffd6f5; box-shadow: 0 0 10px 3px rgba(255, 170, 235, .9);
+  clip-path: polygon(50% 0, 62% 38%, 100% 50%, 62% 62%, 50% 100%, 38% 62%, 0 50%, 38% 38%);
+  opacity: 0; scale: var(--s); animation: rise 6s ease-out infinite; animation-delay: var(--d); }
+@keyframes rise {
+  0%   { opacity: 0; translate: 0 0; rotate: 0deg; }
+  15%  { opacity: 1; }
+  100% { opacity: 0; translate: 26cqw -16cqw; rotate: 360deg; }
+}
+
+/* ---------- Керування ---------- */
+.scene.paused *, .scene.paused *::before, .scene.paused *::after, .scene.paused { animation-play-state: paused !important; }
+.hud { position: absolute; top: 12px; right: 12px; display: flex; gap: 8px; z-index: 5; }
+.hud button { padding: 8px 14px; font-size: 14px; color: #fff; background: rgba(0, 0, 0, .55); border: 0; border-radius: 10px; cursor: pointer; }
+.hud button:hover { background: rgba(0, 0, 0, .8); }
+
+@media (max-width: 600px) { .hud button { padding: 6px 10px; font-size: 12px; } }
+@media (prefers-reduced-motion: reduce) { .scene, .scene * { animation-duration: 240s !important; } }

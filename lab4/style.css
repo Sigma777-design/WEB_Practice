@@ -1,0 +1,56 @@
+/* Лабораторна №4 — Weekly Plan на CSS Grid */
+:root { --line: #9a9a9a; --paper: #fff; --ink: #222; --head: #efefef; }
+* { box-sizing: border-box; }
+body { margin: 0; padding: clamp(8px, 2vw, 24px); font-family: 'Oswald', Arial, sans-serif; color: var(--ink); background: #d9d9d9; }
+
+/* Головна сітка: 4 колонки (ліва вужча) × 3 рядки (шапка + 2 ряди днів) */
+.planner {
+  display: grid;
+  grid-template-columns: 1.05fr repeat(3, 1.5fr);
+  grid-template-rows: auto 1fr 1fr 14px;
+  grid-template-areas:
+    "top   top   top   top"
+    "todo  mon   tue   wed"
+    "todo  thu   fri   wknd"
+    "bar   bar   bar   bar";
+  min-height: calc(100vh - clamp(16px, 4vw, 48px));
+  min-width: 720px;
+  background: var(--paper);
+  border: 3px solid #bdbdbd;
+}
+
+/* Шапка */
+.top { grid-area: top; display: grid; grid-template-columns: auto 1fr 1.3fr auto; align-items: end; gap: 0 clamp(8px, 2vw, 28px); padding: 8px 12px; background: var(--head); border-bottom: 1px solid var(--line); }
+.top__title { margin: 0; font: 400 clamp(28px, 5vw, 56px)/1 'Anton', sans-serif; text-transform: uppercase; color: #555; letter-spacing: 1px; white-space: nowrap; }
+.field { display: flex; align-items: flex-end; gap: 6px; font-size: clamp(9px, 1vw, 12px); font-weight: 600; text-transform: uppercase; white-space: nowrap; }
+.field input { flex: 1; min-width: 0; font: 500 clamp(14px, 1.4vw, 18px) 'Caveat', cursive; background: transparent; border: 0; border-bottom: 1px solid var(--line); outline: none; }
+.top__checks { display: flex; flex-direction: column; align-items: flex-end; gap: 4px; font-size: clamp(9px, 1vw, 12px); font-weight: 600; text-transform: uppercase; }
+.top__checks label { display: flex; align-items: center; gap: 6px; }
+
+/* Ліва колонка */
+.todo { grid-area: todo; display: flex; flex-direction: column; padding: 6px 8px; border-right: 1px solid var(--line); }
+.todo__label { align-self: flex-end; margin: 0 0 4px; font-size: 11px; font-weight: 600; text-transform: uppercase; }
+.todo h3 { margin: 8px 0 2px; font-size: 11px; font-weight: 500; text-transform: uppercase; }
+.lines { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; flex: 1; }
+.line { flex: 1; display: flex; align-items: center; gap: 6px; min-height: 22px; border-bottom: 1px solid var(--line); }
+.line input[type="text"] { flex: 1; min-width: 0; font: 500 clamp(14px, 1.3vw, 18px) 'Caveat', cursive; background: transparent; border: 0; outline: none; }
+
+/* Дні тижня */
+.day { display: flex; flex-direction: column; border-right: 1px solid var(--line); border-bottom: 1px solid var(--line); position: relative; }
+.day::before { content: ""; position: absolute; top: 0; left: 0; border: 6px solid transparent; border-top-color: #888; border-left-color: #888; }
+.day__head { display: flex; justify-content: space-between; align-items: center; padding: 4px 8px 2px 24px; }
+.day__head h2 { margin: 0; font-size: clamp(10px, 1.1vw, 13px); font-weight: 600; letter-spacing: .5px; text-transform: uppercase; }
+.day__notes { flex: 1; width: 100%; padding: 4px 8px; font: 500 clamp(15px, 1.4vw, 19px)/1.5 'Caveat', cursive; resize: none; background: transparent; border: 0; outline: none; }
+.day__notes:focus { background: #fafaf0; }
+
+.planner > .day:nth-of-type(1) { grid-area: mon; } .planner > .day:nth-of-type(2) { grid-area: tue; } .planner > .day:nth-of-type(3) { grid-area: wed; }
+.planner > .day:nth-of-type(4) { grid-area: thu; } .planner > .day:nth-of-type(5) { grid-area: fri; }
+.weekend { grid-area: wknd; display: grid; grid-template-rows: 2fr 1fr; }
+.weekend .day { border-right: 0; }
+
+.bar { grid-area: bar; background: #9a9a9a; }
+
+input[type="checkbox"] { width: 13px; height: 13px; accent-color: #555; cursor: pointer; }
+
+/* Реакція на розмір екрана (не повноцінна адаптивна верстка) */
+@media (max-width: 1000px) { .top { grid-template-columns: auto 1fr 1fr; } .top__checks { grid-column: 3; } }

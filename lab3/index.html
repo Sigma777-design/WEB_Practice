@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>YouTube — копія структури (FlexBox)</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="page">
+
+    <!-- Ліва колонка -->
+    <aside class="sidebar">
+      <div class="logo">
+        <button class="icon-btn" aria-label="Меню">☰</button>
+        <a class="logo__link" href="#"><span class="logo__mark">▶</span><b>YouTube</b> <small>Premium</small></a>
+      </div>
+      <ul class="menu menu--box"><li><a class="menu__item menu__item--active" href="#"><span class="menu__icon">🏠</span>Головна</a></li><li><a class="menu__item" href="#"><span class="menu__icon">▶</span>YouTube Shorts</a></li><li><a class="menu__item" href="#"><span class="menu__icon">📺</span>Підписки</a></li><li><a class="menu__item" href="#"><span class="menu__icon">🎵</span>YouTube Music</a></li></ul>
+      <ul class="menu menu--box">
+        <li class="menu__title">Ви ›</li><li><a class="menu__item" href="#"><span class="menu__icon">👤</span>Ваш канал</a></li><li><a class="menu__item" href="#"><span class="menu__icon">🕘</span>Історія</a></li><li><a class="menu__item" href="#"><span class="menu__icon">🎬</span>Ваші відео</a></li><li><a class="menu__item" href="#"><span class="menu__icon">⏲</span>Переглянути пізніше</a></li><li><a class="menu__item" href="#"><span class="menu__icon">⬇</span>Завантаження</a></li><li><a class="menu__item" href="#"><span class="menu__icon">⌄</span>Показати більше</a></li>
+      </ul>
+      <ul class="menu menu--box">
+        <li class="menu__title">Підписки</li><li><a class="menu__item" href="#"><span class="avatar avatar--sm" style="background:#e53935"></span>WAS: Популярні…<span class="dot"></span></a></li><li><a class="menu__item" href="#"><span class="avatar avatar--sm" style="background:#8e24aa"></span>TheDRZJ<span class="dot"></span></a></li><li><a class="menu__item" href="#"><span class="avatar avatar--sm" style="background:#1e88e5"></span>ROZETKA<span class="dot"></span></a></li><li><a class="menu__item" href="#"><span class="avatar avatar--sm" style="background:#43a047"></span>Алексей Макар…<span class="dot"></span></a></li><li><a class="menu__item" href="#"><span class="avatar avatar--sm" style="background:#fb8c00"></span>ROZETKA GAME…<span class="dot"></span></a></li><li><a class="menu__item" href="#"><span class="avatar avatar--sm" style="background:#6d4c41"></span>Хащі<span class="dot"></span></a></li><li><a class="menu__item" href="#"><span class="avatar avatar--sm" style="background:#00897b"></span>Клятий раціона…<span class="dot"></span></a></li>
+        <li><a class="menu__item" href="#"><span class="menu__icon">⌄</span>Показати ще 24</a></li>
+      </ul>
+    </aside>
+
+    <!-- Права колонка -->
+    <div class="content">
+      <header class="topbar">
+        <form class="search" action="#">
+          <input class="search__input" type="search" placeholder="Пошук">
+          <button class="search__btn" type="button" aria-label="Знайти">🔍</button>
+          <button class="icon-btn icon-btn--round" type="button" aria-label="Голосовий пошук">🎤</button>
+        </form>
+        <div class="topbar__actions">
+          <button class="icon-btn" aria-label="Створити">🎥</button>
+          <button class="icon-btn" aria-label="Сповіщення">🔔</button>
+          <span class="avatar avatar--user">B</span>
+        </div>
+      </header>
+
+      <nav class="chips"><button class="chip chip--active">Усі</button><button class="chip">Ігри</button><button class="chip">Музика</button><button class="chip">Пряма трансляція</button><button class="chip">Новини</button><button class="chip">Пригодницький бойовик</button><button class="chip">Образотворчі мистецтва</button><button class="chip">Мультфільми</button><button class="chip">Нещодавно завантажені</button><button class="chip">Ви дивилися</button><button class="icon-btn chips__next" aria-label="Далі">›</button></nav>
+
+      <main class="feed">
+        <section class="videos">
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#b3262b,#1b3a6b)">
+          <span class="video__time">12:30</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#e53935">ЕП</span>
+          <div class="video__text">
+            <h3 class="video__title">Як збільшився борг України за час великої війни? | Економічна правда</h3>
+            <p class="video__channel">Економічна правда</p>
+            <p class="video__meta">78 тис. переглядів • 1 місяць тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#f2c200,#1a1a1a)">
+          <span class="video__time">32:08</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#8e24aa">L</span>
+          <div class="video__text">
+            <h3 class="video__title">Що бісить журналістку | Марія Малевська</h3>
+            <p class="video__channel">LUKI</p>
+            <p class="video__meta">70 тис. переглядів • 4 місяці тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#8a5a2b,#e0b36a)">
+          <span class="video__time">26:47</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#1e88e5">RT</span>
+          <div class="video__text">
+            <h3 class="video__title">Какие овощи выращивали предки? // Дробышевский. Что было, то и ели</h3>
+            <p class="video__channel">RTVI Развлечения</p>
+            <p class="video__meta">276 тис. переглядів • 11 місяців тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#f6d84c,#2fa36b)">
+          <span class="video__time">4:46</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#43a047">H</span>
+          <div class="video__text">
+            <h3 class="video__title">How to Get Stuff Done When You Have ADHD</h3>
+            <p class="video__channel">How to ADHD</p>
+            <p class="video__meta">1,2 млн переглядів • 7 років тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#3a3f44,#7a8a6a)">
+          <span class="video__time">23:59</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#fb8c00">B</span>
+          <div class="video__text">
+            <h3 class="video__title">«Це твоя лопата, копатимеш собі яму»: знайдено росіян, які...</h3>
+            <p class="video__channel">BIHUS Info</p>
+            <p class="video__meta">90 тис. переглядів • 1 день тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#3b2a8a,#e85d9a)">
+          <span class="video__time">30:18</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#6d4c41">H</span>
+          <div class="video__text">
+            <h3 class="video__title">Neo-Brutalism: The Rising Design Trend</h3>
+            <p class="video__channel">Halo Lab</p>
+            <p class="video__meta">242 перегляди • 1 день тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#7a2a2a,#c9c9c9)">
+          <span class="video__time">2:03</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#00897b">ЛП</span>
+          <div class="video__text">
+            <h3 class="video__title">Лесь Подерв'янський Про бобра</h3>
+            <p class="video__channel">Лесь Подерв'янський</p>
+            <p class="video__meta">434 тис. переглядів • 5 років тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#d9a7a0,#6b4a45)">
+          <span class="video__time">20:19</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#5e35b1">O</span>
+          <div class="video__text">
+            <h3 class="video__title">Unveiling the Amazing Secret for Drawing the Perfect Portrait</h3>
+            <p class="video__channel">One pencil tutorial</p>
+            <p class="video__meta">1,3 млн переглядів • 3 місяці тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#b3262b,#1b3a6b)">
+          <span class="video__time">12:30</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#e53935">ЕП</span>
+          <div class="video__text">
+            <h3 class="video__title">Як збільшився борг України за час великої війни? | Економічна правда</h3>
+            <p class="video__channel">Економічна правда</p>
+            <p class="video__meta">78 тис. переглядів • 1 місяць тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#f2c200,#1a1a1a)">
+          <span class="video__time">32:08</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#8e24aa">L</span>
+          <div class="video__text">
+            <h3 class="video__title">Що бісить журналістку | Марія Малевська</h3>
+            <p class="video__channel">LUKI</p>
+            <p class="video__meta">70 тис. переглядів • 4 місяці тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#8a5a2b,#e0b36a)">
+          <span class="video__time">26:47</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#1e88e5">RT</span>
+          <div class="video__text">
+            <h3 class="video__title">Какие овощи выращивали предки? // Дробышевский. Что было, то и ели</h3>
+            <p class="video__channel">RTVI Развлечения</p>
+            <p class="video__meta">276 тис. переглядів • 11 місяців тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#f6d84c,#2fa36b)">
+          <span class="video__time">4:46</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#43a047">H</span>
+          <div class="video__text">
+            <h3 class="video__title">How to Get Stuff Done When You Have ADHD</h3>
+            <p class="video__channel">How to ADHD</p>
+            <p class="video__meta">1,2 млн переглядів • 7 років тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#3a3f44,#7a8a6a)">
+          <span class="video__time">23:59</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#fb8c00">B</span>
+          <div class="video__text">
+            <h3 class="video__title">«Це твоя лопата, копатимеш собі яму»: знайдено росіян, які...</h3>
+            <p class="video__channel">BIHUS Info</p>
+            <p class="video__meta">90 тис. переглядів • 1 день тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#3b2a8a,#e85d9a)">
+          <span class="video__time">30:18</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#6d4c41">H</span>
+          <div class="video__text">
+            <h3 class="video__title">Neo-Brutalism: The Rising Design Trend</h3>
+            <p class="video__channel">Halo Lab</p>
+            <p class="video__meta">242 перегляди • 1 день тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#7a2a2a,#c9c9c9)">
+          <span class="video__time">2:03</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#00897b">ЛП</span>
+          <div class="video__text">
+            <h3 class="video__title">Лесь Подерв'янський Про бобра</h3>
+            <p class="video__channel">Лесь Подерв'янський</p>
+            <p class="video__meta">434 тис. переглядів • 5 років тому</p>
+          </div>
+        </div>
+      </article>
+      <article class="video">
+        <a class="video__thumb" href="#" style="background:linear-gradient(135deg,#d9a7a0,#6b4a45)">
+          <span class="video__time">20:19</span>
+        </a>
+        <div class="video__info">
+          <span class="avatar" style="background:#5e35b1">O</span>
+          <div class="video__text">
+            <h3 class="video__title">Unveiling the Amazing Secret for Drawing the Perfect Portrait</h3>
+            <p class="video__channel">One pencil tutorial</p>
+            <p class="video__meta">1,3 млн переглядів • 3 місяці тому</p>
+          </div>
+        </div>
+      </article>
+        </section>
+
+        <section class="shorts">
+          <h2 class="shorts__title"><span class="shorts__icon">▶</span>YouTube Shorts<button class="icon-btn" aria-label="Закрити">✕</button></h2>
+          <div class="shorts__row"><a class="short" href="#" style="background:linear-gradient(160deg,#e53935,#222)"><span>Shorts #1</span></a><a class="short" href="#" style="background:linear-gradient(160deg,#8e24aa,#222)"><span>Shorts #2</span></a><a class="short" href="#" style="background:linear-gradient(160deg,#1e88e5,#222)"><span>Shorts #3</span></a><a class="short" href="#" style="background:linear-gradient(160deg,#43a047,#222)"><span>Shorts #4</span></a><a class="short" href="#" style="background:linear-gradient(160deg,#fb8c00,#222)"><span>Shorts #5</span></a><a class="short" href="#" style="background:linear-gradient(160deg,#6d4c41,#222)"><span>Shorts #6</span></a></div>
+        </section>
+      </main>
+    </div>
+  </div>
+</body>
+</html>

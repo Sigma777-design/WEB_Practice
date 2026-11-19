@@ -1,0 +1,55 @@
+/* Лабораторна робота №2 — CSS-селектори (lab2.html не змінюється) */
+
+/* 1. Перший <li> — жирний шрифт */
+li:first-child { font-weight: bold; }
+
+/* 2. <a>, які є останніми дочірніми елементами батька — червоні */
+a:last-child { color: red; }
+
+/* 3. Вимкнені input — сірий фон */
+input:disabled { background-color: lightgray; }
+
+/* 4. <p>, прямі діти <div> — напівжирний шрифт */
+div > p { font-weight: 600; }
+
+/* 5. Елементи з href, що починається з https — зелені.
+   Додано a, щоб специфічність була не меншою за a:last-child з п.2 */
+a[href^="https"] { color: green; }
+
+/* 6. input[type=text] — рамка 1px суцільна синя */
+input[type="text"] { border: 1px solid blue; }
+
+/* 7. <li> — перші або останні діти батька: шрифт 24px */
+li:first-child,
+li:last-child { font-size: 24px; }
+
+/* 8. <p>, нащадки <div> — шрифт 16px */
+div p { font-size: 16px; }
+
+/* 9. Відмічені input — світло-блакитний колір
+   (background у checkbox не видно без appearance, тому додано accent-color) */
+input:checked {
+  background-color: lightblue;
+  accent-color: lightblue;
+}
+
+/* 10. <a>, прямі діти <li> — підкреслені */
+li > a { text-decoration: underline; }
+
+/* 11. Парні <li> — жирний шрифт */
+li:nth-child(even) { font-weight: bold; }
+
+/* 12. input[type=text], які не disabled — сірий фон */
+input[type="text"]:not(:disabled) { background-color: gray; }
+
+/* 13. <p>, перші діти батька — шрифт 24px */
+p:first-child { font-size: 24px; }
+
+/* 14. <li> одразу після .special — перекреслений */
+.special + li { text-decoration: line-through; }
+
+/* 15. Перша літера кожного <p> — 36px */
+p::first-letter { font-size: 36px; }
+
+/* 16. Після кожного <a> додати ↗ */
+a::after { content: "↗"; }

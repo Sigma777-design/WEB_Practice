@@ -1,0 +1,90 @@
+/* Практичне заняття №2 — стилізація форми */
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Arial, Helvetica, sans-serif;
+  background: linear-gradient(135deg, #cfd9ff, #e8dcff);
+}
+
+.reg-form {
+  /* e. Позиціювання: форма по центру сторінки + бейдж через absolute */
+  position: relative;
+  top: 50px;
+  margin: 0 auto 100px;
+
+  /* a. Колір фону та тексту */
+  background-color: #1f2a44;
+  color: #f1f4ff;
+
+  /* b. Ширина та внутрішні відступи */
+  width: 420px;
+  max-width: 92%;
+  padding: 32px 36px 36px;
+
+  /* c. Закруглені кути */
+  border-radius: 20px;
+
+  /* d. Тінь */
+  box-shadow: 0 20px 45px rgba(31, 42, 68, .45), 0 4px 10px rgba(0, 0, 0, .25);
+}
+
+.reg-form__badge {
+  position: absolute;
+  top: -12px;
+  right: 20px;
+  padding: 6px 14px;
+  background: #ff7a59;
+  color: #fff;
+  font-size: 13px;
+  font-weight: bold;
+  border-radius: 999px;
+  box-shadow: 0 4px 10px rgba(255, 122, 89, .5);
+}
+
+.reg-form h2 { margin: 0 0 12px; text-align: center; font-size: 28px; }
+
+.reg-form label { display: block; margin: 14px 0 6px; font-size: 14px; color: #b9c4ee; }
+
+.reg-form input[type="text"],
+.reg-form input[type="email"],
+.reg-form input[type="password"],
+.reg-form input[type="date"],
+.reg-form select,
+.reg-form textarea {
+  width: 100%;
+  padding: 11px 14px;
+  font: inherit;
+  color: #1f2a44;
+  background: #f1f4ff;
+  border: 2px solid transparent;
+  border-radius: 10px;
+  outline: none;
+  transition: border-color .2s, box-shadow .2s;
+}
+
+.reg-form input:focus,
+.reg-form select:focus,
+.reg-form textarea:focus {
+  border-color: #6c8cff;
+  box-shadow: 0 0 0 4px rgba(108, 140, 255, .3);
+}
+
+
+.reg-form .submit-btn {
+  width: 100%;
+  margin-top: 24px;
+  padding: 14px;
+  font: bold 16px Arial, sans-serif;
+  color: #fff;
+  background: linear-gradient(90deg, #6c8cff, #8a6cff);
+  border: 0;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(108, 140, 255, .45);
+  cursor: pointer;
+  transition: transform .15s, box-shadow .15s;
+}
+
+.reg-form .submit-btn:hover  { transform: translateY(-2px); box-shadow: 0 12px 24px rgba(108, 140, 255, .55); }
+.reg-form .submit-btn:active { transform: translateY(1px); }

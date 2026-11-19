@@ -1,0 +1,102 @@
+/* Лабораторна №5 — Portfolio UI (Home), десктоп + мобільна версія
+   Кольори й розміри зняті з макета Figma «Portfolio UI - Web & Mobile» */
+:root {
+  --ink: #21243d;
+  --bg-soft: #edf7fa;
+  --accent: #ff6464;
+  --link: #00a8cc;
+  --badge: #142850;
+  --muted: #8695a4;
+  --line: #efefef;
+}
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; font-family: 'Roboto', Arial, sans-serif; font-size: 15px; line-height: 1.6; color: var(--ink); background: #fff; }
+a { color: inherit; text-decoration: none; }
+h1, h2, h3, p { margin: 0; }
+img { display: block; max-width: 100%; }
+
+.container { width: min(856px, 100% - 32px); margin-inline: auto; }
+
+/* Header */
+.header { display: flex; align-items: center; justify-content: space-between; padding: 22px 60px; }
+.nav { display: flex; gap: 24px; margin-left: auto; font-size: 16px; font-weight: 500; color: #000; }
+.nav a:hover { color: var(--accent); }
+.burger { display: none; width: 36px; height: 24px; padding: 0; background: none; border: 0; cursor: pointer; flex-direction: column; justify-content: space-between; }
+.burger span { display: block; height: 2px; background: var(--ink); }
+.burger span:first-child { margin-top: 4px; }
+
+/* Hero */
+.hero { display: flex; align-items: center; justify-content: space-between; gap: 40px; padding: 70px 0 72px; }
+.hero__text { max-width: 490px; }
+h1 { font-size: 40px; font-weight: 700; line-height: 1.3; margin-bottom: 26px; }
+.hero__text p { margin-bottom: 26px; }
+.btn { display: inline-block; padding: 10px 14px; font-size: 18px; font-weight: 500; color: #fff; background: var(--accent); border-radius: 2px; transition: filter .2s, transform .2s; }
+.btn:hover { filter: brightness(.94); transform: translateY(-2px); }
+.hero__photo { position: relative; flex: none; width: 243px; height: 243px; }
+.hero__photo::before { content: ""; position: absolute; left: -5px; top: 13px; width: 243px; height: 243px; background: var(--bg-soft); border-radius: 50%; }
+.hero__photo img { position: relative; width: 243px; height: 243px; border-radius: 50%; }
+
+/* Recent posts */
+.posts { padding: 22px 0 22px; background: var(--bg-soft); }
+.section-head { display: flex; align-items: baseline; justify-content: space-between; margin-bottom: 16px; }
+h2 { font-size: 18px; font-weight: 400; }
+.view-all { font-size: 14px; color: var(--link); }
+.view-all:hover { text-decoration: underline; }
+.posts__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.post { padding: 22px 22px 14px; background: #fff; border-radius: 3px; box-shadow: 0 2px 6px rgba(0, 0, 0, .04); }
+.post h3 { font-size: 24px; font-weight: 700; line-height: 1.3; margin-bottom: 26px; }
+.meta { display: flex; align-items: center; margin-bottom: 20px; font-size: 16px; }
+.meta span + span { margin-left: 28px; padding-left: 28px; border-left: 1px solid var(--ink); line-height: 1.3; }
+.post > p:last-child { font-size: 15px; }
+
+/* Featured works */
+.works { padding: 22px 0 80px; }
+.works h2 { margin-bottom: 22px; }
+.work { display: flex; gap: 12px; padding: 22px 0 22px; border-bottom: 2px solid var(--line); }
+.work:first-of-type { padding-top: 0; }
+.work img { flex: none; width: 246px; height: 180px; object-fit: cover; border-radius: 4px; }
+.work__body h3 { margin-bottom: 8px; font-size: 28px; font-weight: 700; line-height: 1.25; }
+.work__tags { display: flex; align-items: center; gap: 18px; margin-bottom: 14px; }
+.year { padding: 0 11px; font-size: 16px; font-weight: 700; line-height: 1.5; color: #fff; background: var(--badge); border-radius: 999px; }
+.cat { font-size: 18px; color: var(--muted); }
+
+/* Footer */
+.footer { padding: 28px 16px 20px; text-align: center; font-size: 13px; }
+.social { display: flex; justify-content: center; gap: 26px; margin: 0 0 14px; padding: 0; list-style: none; }
+.social svg { display: block; width: 28px; height: 28px; fill: var(--ink); transition: fill .2s; }
+.social a:hover svg { fill: var(--accent); }
+
+/* Мобільна версія (макет Home - Mobile, 375px) */
+@media (max-width: 800px) {
+  .header { position: relative; padding: 16px; }
+  .burger { display: flex; margin-left: auto; }
+  .nav { display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 10; flex-direction: column; gap: 0; padding: 0 16px 12px; background: #fff; box-shadow: 0 10px 20px rgba(0, 0, 0, .08); }
+  .nav a { padding: 12px 0; border-bottom: 1px solid var(--line); text-align: center; }
+  .nav--open { display: flex; }
+
+  .hero { flex-direction: column-reverse; gap: 22px; padding: 10px 0 48px; text-align: center; }
+  .hero__text { max-width: none; }
+  h1 { font-size: 28px; margin-bottom: 20px; }
+  .hero__text p { margin-bottom: 22px; font-size: 16px; }
+  .btn { padding: 12px 22px; }
+  .hero__photo { width: 185px; height: 185px; }
+  .hero__photo::before { width: 185px; height: 185px; left: -4px; top: 10px; }
+  .hero__photo img { width: 185px; height: 185px; }
+
+  .posts { padding: 22px 0 28px; }
+  .section-head { justify-content: center; margin-bottom: 18px; }
+  .view-all { display: none; }
+  .posts__grid { grid-template-columns: 1fr; gap: 16px; }
+  .post { padding: 18px 14px 14px; }
+  .post h3 { font-size: 20px; margin-bottom: 14px; }
+  .meta { margin-bottom: 16px; }
+  .meta span + span { margin-left: 18px; padding-left: 18px; }
+
+  .works { padding: 24px 0 60px; }
+  .works h2 { margin-bottom: 18px; text-align: center; }
+  .work { flex-direction: column; gap: 14px; padding: 0 0 22px; margin-bottom: 22px; }
+  .work img { width: 100%; height: auto; aspect-ratio: 246 / 180; }
+  .work__body h3 { font-size: 22px; }
+  .work__tags { margin-bottom: 14px; }
+}

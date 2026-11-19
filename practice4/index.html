@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Практична №4 — Fullsize клавіатура (grid)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Rubik:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <h1 class="title">Fullsize keyboard</h1>
+  <p class="hint">Натискайте клавіші мишею або фізичною клавіатурою. <kbd>Caps&nbsp;Lock</kbd>, <kbd>Num&nbsp;Lock</kbd> і <kbd>Scroll&nbsp;Lock</kbd> вмикаються.</p>
+
+  <div class="case">
+    <div class="cable"></div>
+    <div class="leds"><span class="led" id="led-num"></span><span class="led" id="led-caps"></span><span class="led" id="led-scroll"></span></div>
+    <div class="keyboard" id="keyboard">
+    <button class="key fn" style="grid-row:1/span 1;grid-column:1/span 4" data-code="Escape" type="button"><b>Esc</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:9/span 4" data-code="F1" type="button"><b>F1</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:13/span 4" data-code="F2" type="button"><b>F2</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:17/span 4" data-code="F3" type="button"><b>F3</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:21/span 4" data-code="F4" type="button"><b>F4</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:27/span 4" data-code="F5" type="button"><b>F5</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:31/span 4" data-code="F6" type="button"><b>F6</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:35/span 4" data-code="F7" type="button"><b>F7</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:39/span 4" data-code="F8" type="button"><b>F8</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:45/span 4" data-code="F9" type="button"><b>F9</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:49/span 4" data-code="F10" type="button"><b>F10</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:53/span 4" data-code="F11" type="button"><b>F11</b></button>
+    <button class="key fn" style="grid-row:1/span 1;grid-column:57/span 4" data-code="F12" type="button"><b>F12</b></button>
+    <button class="key fn small" style="grid-row:1/span 1;grid-column:63/span 4" data-code="PrintScreen" type="button"><b>PrtSc</b></button>
+    <button class="key fn small" style="grid-row:1/span 1;grid-column:67/span 4" data-code="ScrollLock" type="button"><b>ScrLk</b></button>
+    <button class="key fn small" style="grid-row:1/span 1;grid-column:71/span 4" data-code="Pause" type="button"><b>Pause</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:1/span 4" data-code="Backquote" type="button"><i>~</i><b>`</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:5/span 4" data-code="Digit1" type="button"><i>!</i><b>1</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:9/span 4" data-code="Digit2" type="button"><i>@</i><b>2</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:13/span 4" data-code="Digit3" type="button"><i>#</i><b>3</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:17/span 4" data-code="Digit4" type="button"><i>$</i><b>4</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:21/span 4" data-code="Digit5" type="button"><i>%</i><b>5</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:25/span 4" data-code="Digit6" type="button"><i>^</i><b>6</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:29/span 4" data-code="Digit7" type="button"><i>&</i><b>7</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:33/span 4" data-code="Digit8" type="button"><i>*</i><b>8</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:37/span 4" data-code="Digit9" type="button"><i>(</i><b>9</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:41/span 4" data-code="Digit0" type="button"><i>)</i><b>0</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:45/span 4" data-code="Minus" type="button"><i>_</i><b>-</b></button>
+    <button class="key " style="grid-row:3/span 1;grid-column:49/span 4" data-code="Equal" type="button"><i>+</i><b>=</b></button>
+    <button class="key wide" style="grid-row:3/span 1;grid-column:53/span 8" data-code="Backspace" type="button"><b>Backspace</b></button>
+    <button class="key small" style="grid-row:3/span 1;grid-column:63/span 4" data-code="Insert" type="button"><b>Ins</b></button>
+    <button class="key small" style="grid-row:3/span 1;grid-column:67/span 4" data-code="Home" type="button"><b>Home</b></button>
+    <button class="key small" style="grid-row:3/span 1;grid-column:71/span 4" data-code="PageUp" type="button"><b>PgUp</b></button>
+    <button class="key small toggle" style="grid-row:3/span 1;grid-column:77/span 4" data-code="NumLock" type="button"><i>Lock</i><b>Num</b></button>
+    <button class="key small" style="grid-row:3/span 1;grid-column:81/span 4" data-code="NumpadDivide" type="button"><b>/</b></button>
+    <button class="key small" style="grid-row:3/span 1;grid-column:85/span 4" data-code="NumpadMultiply" type="button"><b>*</b></button>
+    <button class="key small" style="grid-row:3/span 1;grid-column:89/span 4" data-code="NumpadSubtract" type="button"><b>-</b></button>
+    <button class="key wide" style="grid-row:4/span 1;grid-column:1/span 6" data-code="Tab" type="button"><b>Tab</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:7/span 4" data-code="KeyQ" type="button"><b>Q</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:11/span 4" data-code="KeyW" type="button"><b>W</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:15/span 4" data-code="KeyE" type="button"><b>E</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:19/span 4" data-code="KeyR" type="button"><b>R</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:23/span 4" data-code="KeyT" type="button"><b>T</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:27/span 4" data-code="KeyY" type="button"><b>Y</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:31/span 4" data-code="KeyU" type="button"><b>U</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:35/span 4" data-code="KeyI" type="button"><b>I</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:39/span 4" data-code="KeyO" type="button"><b>O</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:43/span 4" data-code="KeyP" type="button"><b>P</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:47/span 4" data-code="BracketLeft" type="button"><i>{</i><b>[</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:51/span 4" data-code="BracketRight" type="button"><i>}</i><b>]</b></button>
+    <button class="key " style="grid-row:4/span 1;grid-column:55/span 6" data-code="Backslash" type="button"><i>|</i><b>\</b></button>
+    <button class="key small" style="grid-row:4/span 1;grid-column:63/span 4" data-code="Delete" type="button"><b>Del</b></button>
+    <button class="key small" style="grid-row:4/span 1;grid-column:67/span 4" data-code="End" type="button"><b>End</b></button>
+    <button class="key small" style="grid-row:4/span 1;grid-column:71/span 4" data-code="PageDown" type="button"><b>PgDn</b></button>
+    <button class="key num" style="grid-row:4/span 1;grid-column:77/span 4" data-code="Numpad7" type="button"><b>7</b></button>
+    <button class="key num" style="grid-row:4/span 1;grid-column:81/span 4" data-code="Numpad8" type="button"><b>8</b></button>
+    <button class="key num" style="grid-row:4/span 1;grid-column:85/span 4" data-code="Numpad9" type="button"><b>9</b></button>
+    <button class="key tall" style="grid-row:4/span 2;grid-column:89/span 4" data-code="NumpadAdd" type="button"><b>+</b></button>
+    <button class="key wide toggle" style="grid-row:5/span 1;grid-column:1/span 7" data-code="CapsLock" type="button"><b>Caps Lock</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:8/span 4" data-code="KeyA" type="button"><b>A</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:12/span 4" data-code="KeyS" type="button"><b>S</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:16/span 4" data-code="KeyD" type="button"><b>D</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:20/span 4" data-code="KeyF" type="button"><b>F</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:24/span 4" data-code="KeyG" type="button"><b>G</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:28/span 4" data-code="KeyH" type="button"><b>H</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:32/span 4" data-code="KeyJ" type="button"><b>J</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:36/span 4" data-code="KeyK" type="button"><b>K</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:40/span 4" data-code="KeyL" type="button"><b>L</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:44/span 4" data-code="Semicolon" type="button"><i>:</i><b>;</b></button>
+    <button class="key " style="grid-row:5/span 1;grid-column:48/span 4" data-code="Quote" type="button"><i>"</i><b>'</b></button>
+    <button class="key wide" style="grid-row:5/span 1;grid-column:52/span 9" data-code="Enter" type="button"><b>Enter</b></button>
+    <button class="key num" style="grid-row:5/span 1;grid-column:77/span 4" data-code="Numpad4" type="button"><b>4</b></button>
+    <button class="key num" style="grid-row:5/span 1;grid-column:81/span 4" data-code="Numpad5" type="button"><b>5</b></button>
+    <button class="key num" style="grid-row:5/span 1;grid-column:85/span 4" data-code="Numpad6" type="button"><b>6</b></button>
+    <button class="key wide" style="grid-row:6/span 1;grid-column:1/span 9" data-code="ShiftLeft" type="button"><b>Shift</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:10/span 4" data-code="KeyZ" type="button"><b>Z</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:14/span 4" data-code="KeyX" type="button"><b>X</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:18/span 4" data-code="KeyC" type="button"><b>C</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:22/span 4" data-code="KeyV" type="button"><b>V</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:26/span 4" data-code="KeyB" type="button"><b>B</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:30/span 4" data-code="KeyN" type="button"><b>N</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:34/span 4" data-code="KeyM" type="button"><b>M</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:38/span 4" data-code="Comma" type="button"><i><</i><b>,</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:42/span 4" data-code="Period" type="button"><i>></i><b>.</b></button>
+    <button class="key " style="grid-row:6/span 1;grid-column:46/span 4" data-code="Slash" type="button"><i>?</i><b>/</b></button>
+    <button class="key wide" style="grid-row:6/span 1;grid-column:50/span 11" data-code="ShiftRight" type="button"><b>Shift</b></button>
+    <button class="key arrow" style="grid-row:6/span 1;grid-column:67/span 4" data-code="ArrowUp" type="button"><b>↑</b></button>
+    <button class="key num" style="grid-row:6/span 1;grid-column:77/span 4" data-code="Numpad1" type="button"><b>1</b></button>
+    <button class="key num" style="grid-row:6/span 1;grid-column:81/span 4" data-code="Numpad2" type="button"><b>2</b></button>
+    <button class="key num" style="grid-row:6/span 1;grid-column:85/span 4" data-code="Numpad3" type="button"><b>3</b></button>
+    <button class="key tall" style="grid-row:6/span 2;grid-column:89/span 4" data-code="NumpadEnter" type="button"><b>Enter</b></button>
+    <button class="key wide mod" style="grid-row:7/span 1;grid-column:1/span 5" data-code="ControlLeft" type="button"><b>Ctrl</b></button>
+    <button class="key wide mod" style="grid-row:7/span 1;grid-column:6/span 5" data-code="MetaLeft" type="button"><b>Win</b></button>
+    <button class="key wide mod" style="grid-row:7/span 1;grid-column:11/span 5" data-code="AltLeft" type="button"><b>Alt</b></button>
+    <button class="key space" style="grid-row:7/span 1;grid-column:16/span 25" data-code="Space" type="button"><b></b></button>
+    <button class="key wide mod" style="grid-row:7/span 1;grid-column:41/span 5" data-code="AltRight" type="button"><b>Alt</b></button>
+    <button class="key wide mod" style="grid-row:7/span 1;grid-column:46/span 5" data-code="MetaRight" type="button"><b>Win</b></button>
+    <button class="key wide mod" style="grid-row:7/span 1;grid-column:51/span 5" data-code="ContextMenu" type="button"><b>Menu</b></button>
+    <button class="key wide mod" style="grid-row:7/span 1;grid-column:56/span 5" data-code="ControlRight" type="button"><b>Ctrl</b></button>
+    <button class="key arrow" style="grid-row:7/span 1;grid-column:63/span 4" data-code="ArrowLeft" type="button"><b>←</b></button>
+    <button class="key arrow" style="grid-row:7/span 1;grid-column:67/span 4" data-code="ArrowDown" type="button"><b>↓</b></button>
+    <button class="key arrow" style="grid-row:7/span 1;grid-column:71/span 4" data-code="ArrowRight" type="button"><b>→</b></button>
+    <button class="key num" style="grid-row:7/span 1;grid-column:77/span 8" data-code="Numpad0" type="button"><b>0</b></button>
+    <button class="key num" style="grid-row:7/span 1;grid-column:85/span 4" data-code="NumpadDecimal" type="button"><b>.</b></button>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

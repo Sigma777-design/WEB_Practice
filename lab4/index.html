@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Лабораторна №4 — Weekly Plan</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600&family=Caveat:wght@500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="planner">
+
+    <header class="top">
+      <h1 class="top__title">Weekly Plan</h1>
+      <label class="field top__week">Week of <input type="text"></label>
+      <label class="field top__habit">Healthy habit <input type="text"></label>
+      <div class="top__checks">
+        <label>Rocked it <input type="checkbox"></label>
+        <label>Room for improvement <input type="checkbox"></label>
+      </div>
+    </header>
+
+    <aside class="todo">
+      <h2 class="todo__label">To do</h2>
+      <h3>Top 3 goals</h3>
+      <ul class="lines"><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li></ul>
+      <h3>Everything else</h3>
+      <ul class="lines"><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li></ul>
+      <h3>Next week</h3>
+      <ul class="lines"><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li><li class="line"><input type="checkbox" aria-label="Виконано"><input type="text" aria-label="Запис"></li></ul>
+    </aside>
+
+      <section class="day ">
+        <header class="day__head"><h2>Monday</h2><input type="checkbox" aria-label="Monday виконано"></header>
+        <textarea class="day__notes" aria-label="Нотатки: Monday"></textarea>
+      </section>
+      <section class="day ">
+        <header class="day__head"><h2>Tuesday</h2><input type="checkbox" aria-label="Tuesday виконано"></header>
+        <textarea class="day__notes" aria-label="Нотатки: Tuesday"></textarea>
+      </section>
+      <section class="day ">
+        <header class="day__head"><h2>Wednesday</h2><input type="checkbox" aria-label="Wednesday виконано"></header>
+        <textarea class="day__notes" aria-label="Нотатки: Wednesday"></textarea>
+      </section>
+      <section class="day ">
+        <header class="day__head"><h2>Thursday</h2><input type="checkbox" aria-label="Thursday виконано"></header>
+        <textarea class="day__notes" aria-label="Нотатки: Thursday"></textarea>
+      </section>
+      <section class="day ">
+        <header class="day__head"><h2>Friday</h2><input type="checkbox" aria-label="Friday виконано"></header>
+        <textarea class="day__notes" aria-label="Нотатки: Friday"></textarea>
+      </section>
+    <div class="weekend">
+      <section class="day day--half">
+        <header class="day__head"><h2>Saturday</h2><input type="checkbox" aria-label="Saturday виконано"></header>
+        <textarea class="day__notes" aria-label="Нотатки: Saturday"></textarea>
+      </section>
+      <section class="day day--half">
+        <header class="day__head"><h2>Sunday</h2><input type="checkbox" aria-label="Sunday виконано"></header>
+        <textarea class="day__notes" aria-label="Нотатки: Sunday"></textarea>
+      </section>
+    </div>
+
+    <footer class="bar"></footer>
+  </div>
+</body>
+</html>

@@ -205,3 +205,62 @@ footer {
 .submit-btn:hover {
     background-color: #0056b3;
 }
+
+/* ===== Головна сторінка: легка візуальна полірування (діє лише на body.home-page) ===== */
+.home-page {
+  --home-bg: #2b2e35;
+  --home-card: #353a44;
+  --home-accent: #4da3ff;
+  --home-link: #7bbcff;
+  --home-text: #e9ecf2;
+  background: var(--home-bg);
+  color: var(--home-text);
+  scroll-behavior: smooth;
+}
+.home-page header { background: #1f2126; border-bottom: 2px solid var(--home-accent); }
+.home-page header nav { width: 90%; max-width: 1100px; margin: 0 auto; justify-content: flex-start; }
+.home-page header nav ul { display: flex; flex-wrap: wrap; gap: .3rem 1.6rem; list-style: none; }
+.home-page header nav a { margin-right: 0; padding: .2rem 0; border-bottom: 2px solid transparent; transition: color .2s, border-color .2s; }
+.home-page header nav a:hover { color: var(--home-link); border-bottom-color: var(--home-accent); }
+
+.home-page main.home { width: 90%; max-width: 1100px; margin: 0 auto; padding: 2rem 0 1rem; }
+.home-page main.home section {
+  margin-bottom: 1.5rem; padding: 1.5rem 1.75rem;
+  background: var(--home-card); border: 1px solid rgba(255, 255, 255, .06); border-radius: 12px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, .25);
+  scroll-margin-top: 1rem;
+}
+.home-page main.home h2 { padding-bottom: .5rem; border-bottom: 2px solid rgba(77, 163, 255, .35); }
+
+/* Про мене: текст ліворуч, фото праворуч */
+.home-page #about { display: grid; grid-template-columns: 1fr auto; grid-template-areas: "title avatar" "text avatar" "contacts avatar"; column-gap: 2rem; align-items: start; }
+.home-page #about h1 { grid-area: title; }
+.home-page #about > p { grid-area: text; }
+.home-page #about .about-avatar { grid-area: avatar; align-self: center; }
+.home-page #about .contacts { grid-area: contacts; }
+.home-page .profile-img { border-color: var(--home-accent); }
+.home-page .contacts h4 { margin-bottom: .6rem; }
+.home-page .contacts a { color: var(--home-link); }
+
+/* Списки робіт */
+.home-page #practical ul, .home-page #labs ul { display: grid; gap: .6rem; margin-top: 1rem; list-style: none; }
+.home-page #practical li, .home-page #labs li {
+  padding: .7rem 1rem; color: #d5d9e2;
+  background: rgba(255, 255, 255, .04); border-left: 3px solid var(--home-accent); border-radius: 8px;
+  transition: background .2s, transform .2s;
+}
+.home-page #practical li:hover, .home-page #labs li:hover { background: rgba(77, 163, 255, .12); transform: translateX(4px); }
+.home-page #practical li a, .home-page #labs li a { color: var(--home-link); font-weight: 600; text-decoration: none; }
+.home-page #practical li a:hover, .home-page #labs li a:hover { text-decoration: underline; }
+
+.home-page footer { background: #1f2126; }
+.home-page footer a { color: var(--home-link); }
+
+@media (max-width: 768px) {
+  .home-page main.home { padding-top: 1.25rem; }
+  .home-page main.home section { padding: 1.25rem 1.1rem; }
+  .home-page #about { display: block; text-align: center; }
+  .home-page #about .about-avatar { display: flex; justify-content: center; margin: 1rem 0; }
+  .home-page #practical li, .home-page #labs li { text-align: left; }
+  .home-page #practical li:hover, .home-page #labs li:hover { transform: none; }
+}
